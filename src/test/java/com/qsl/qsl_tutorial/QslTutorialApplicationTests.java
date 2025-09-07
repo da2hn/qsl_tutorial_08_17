@@ -2,6 +2,7 @@ package com.qsl.qsl_tutorial;
 
 import com.qsl.qsl_tutorial.boundedContext.user.entity.SiteUser;
 import com.qsl.qsl_tutorial.boundedContext.user.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+@Transactional // 각 테스트 케이스에 전부 @Transactional을 붙인 것과 같은 효과
+//@Test + @Transactional 조합은 자동으로 롤백을 유발시킨다.
 @ActiveProfiles("test")
 class QslTutorialApplicationTests {
 	@Autowired
