@@ -53,4 +53,14 @@ public class UserRepositoryImpl implements UserRepositoryCustom{
                 .orderBy(siteUser.id.asc())
                 .fetch();
     }
+
+    @Override
+    public List<SiteUser> searchQsl(String kw) {
+        return jpaQueryFactory
+                .selectFrom(siteUser)
+                .where(siteUser.username.contains(kw)
+                        .or(siteUser.email.contains(kw))
+                )
+                .fetch();
+    }
 }
