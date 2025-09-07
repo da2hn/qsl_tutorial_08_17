@@ -21,4 +21,10 @@ public class UserRepositoryImpl implements UserRepositoryCustom{
                 .fetchOne(); // 단일 결과를 반환
 
     }
+
+    @Override
+    public long getQslCount() {
+        // select count(*) from site_user
+        return 0;
+    }
 }

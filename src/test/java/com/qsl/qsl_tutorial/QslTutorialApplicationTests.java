@@ -70,4 +70,12 @@ class QslTutorialApplicationTests {
 
 	}
 
+	@Test
+	@DisplayName("모든 회원 수")
+	void t4(){
+		long count = userRepository.getQslCount();
+
+		assertThat(count).isGreaterThan(0); //회원수가 0보다 큰지 확인
+	}
+
 }
